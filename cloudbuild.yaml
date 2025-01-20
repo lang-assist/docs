@@ -1,0 +1,49 @@
+steps:
+  # Build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "us-central1-docker.pkg.dev/$PROJECT_ID/docs/docs-server",
+        ".",
+      ]
+
+  # Push the container image to Artifact Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "us-central1-docker.pkg.dev/$PROJECT_ID/docs/docs-server"]
+
+  # Deploy container image to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "docs"
+      - "--image"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/docs/docs-server"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
+      - "--service-account"
+      - "docs-sa@${PROJECT_ID}.iam.gserviceaccount.com"
+      - "--cpu"
+      - "1"
+      - "--memory"
+      - "512Mi"
+      - "--min-instances"
+      - "0"
+      - "--max-instances"
+      - "10"
+      - "--port"
+      - "8080"
+      - "--set-env-vars"
+      - "BUCKET_NAME=${PROJECT_ID}"
+
+images:
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/docs/docs-server"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
