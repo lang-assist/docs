@@ -193,3 +193,27 @@
    - Referral programı
    - Eğitim kurumları ile partnerlikler
    - Yeni dil destekleri
+
+# Deneyimler
+
+## Claude
+
+1 dolar ile yaklaşık 15 quiz ve 15 conversation material yaratılıyor. Ortalama çözme süresi 4 dk.
+
+Quiz'in ek maliyeti yok.
+Conversation için 1 dolar ile 100 turn yapılıyor. 1 conversation ortalama 10 turn.
+
+Ayrıca cümle çözümleme 1 dolar ile 100 cümle çözümleme yapılıyor.
+
+Kullanıcı davranışı:
+Günde 5 conversation, 5 quiz, 15 cümle çözümleme.
+
+Günlük maliyet:
+0.65 dolar materyal yaratma.
+0.5 dolar conversation turnleri
+0.15 dolar cümle çözümleme
+
+= 1.3 dolar
+
+Aylık maliyet:
+1.3 dolar x 30 = 39 dolar

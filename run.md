@@ -31,19 +31,7 @@ Sunucu http://localhost:8080 adresinde çalışacaktır.
 
 ```bash
 gcloud auth login
-gcloud config set project lang-assist-25
-```
-
-2. Service Account anahtarını indirin:
-
-```bash
-gcloud iam service-accounts keys create key.json --iam-account=docs-sa@lang-assist-25.iam.gserviceaccount.com
-```
-
-3. Service Account anahtarını kullanarak kimlik doğrulaması yapın:
-
-```bash
-gcloud auth activate-service-account --key-file=key.json
+gcloud config set project <PROJECT_ID>
 ```
 
 4. Docker kimlik doğrulaması yapın:
@@ -69,7 +57,7 @@ npm run upload
 ## Erişim
 
 Dökümanlar şu adreste yayınlanacaktır:
-https://docs-457004764585.us-central1.run.app
+https://docs-<PROJECT_ID>.us-central1.run.app
 
 ## Dizin Yapısı
 
@@ -96,4 +84,4 @@ https://docs-457004764585.us-central1.run.app
 
 ## Dökümanlar
 
-https://docs-457004764585.us-central1.run.app/_internal/test.md
+https://docs-<PROJECT_ID>.us-central1.run.app/\_internal/test.md
